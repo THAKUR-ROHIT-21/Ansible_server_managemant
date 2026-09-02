@@ -1,3 +1,9 @@
+# ansible-playbook -i inventory/hosts.ini playbook/server-complaince.yaml --syntax-check
+# showing (playbook: playbook/server-complaince.yaml)
+# ansible-playbook -i inventory/hosts.ini playbook/server-complaince.yaml
+
+
+
 ---
 applications:
   - name: nginx
