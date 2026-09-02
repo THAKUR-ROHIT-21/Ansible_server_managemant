@@ -1,0 +1,26 @@
+# ---
+# - name: Build Application Report
+#   ansible.builtin.debug:
+#     msg: >-
+#       {{
+#       item.name
+#       }} | status: {{ item.status }} | verion: {{ item.verion}}
+
+#   loop: "{{ application_results}}"
+
+
+#   tasks:
+#     - name: Run Application Compliance Check
+#       ansible.builtin.import_tasks: ../inventory/application.yaml
+
+#     - name: Generate 
+
+---
+- name: Build Application Report
+  ansible.builtin.debug:
+    msg: >-
+      {{
+      item.name
+      }} | status: {{ item.status }} | version: {{ item.version }}
+
+  loop: "{{ application_results }}"

@@ -1,11 +1,27 @@
+# ---
+# - name: Configure Servers
+#   hosts: servers
+#   become: true
+#   gather_facts: true
+
+#   tasks:
+#     - name: Ensure APT package cache is updated
+#       ansible.builtin.apt:
+#         update_cache: true
+#         cache_valid_time: 3600
+
 ---
-- name: Configure Servers
+- name: Techon-orbex Application Compliance
   hosts: servers
   become: true
-  gather_facts: true
+  gather_facts: false
+
+  vars_files:
+    - ../inventory/application.yaml
 
   tasks:
-    - name: Ensure APT package cache is updated
-      ansible.builtin.apt:
-        update_cache: true
-        cache_valid_time: 3600
+    - name: Run Application Compliance Check
+      ansible.builtin.import_tasks: ../tasks/application.yaml
+
+    - name: Generate Application Report
+      ansible.builtin.import_tasks: ../tasks/report.yaml
