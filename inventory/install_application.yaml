@@ -1,0 +1,5 @@
+---
+applications_to_install:
+  - docker
+  - nginx
+  - python3

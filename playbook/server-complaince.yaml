@@ -18,10 +18,14 @@
 
   vars_files:
     - ../inventory/application.yaml
+    - ../inventory/install_application.yaml
 
   tasks:
     - name: Run Application Compliance Check
       ansible.builtin.import_tasks: ../tasks/application.yaml
+
+    - name: Tools install
+      ansible.builtin.import_tasks: ../tasks/install.yaml
 
     - name: Generate Application Report
       ansible.builtin.import_tasks: ../tasks/report.yaml

@@ -1,0 +1,18 @@
+---
+- name: Install required Tools
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop: "{{ applications_to_install }}"
+  register: installation_results
+  failed_when: false
+
+- name: Display Installation Results
+  ansible.builtin.debug:
+    msg: >-
+      Application: {{ item.item }} | Status: {{
+      'INSTALLED SUCCESSFULLY ✅' if not item.failed
+      else 'INSTALLATION FAILED ❌'
+      }}
+  loop: "{{ installation_results.results }}"

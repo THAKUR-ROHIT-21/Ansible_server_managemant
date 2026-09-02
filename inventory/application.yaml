@@ -1,3 +1,10 @@
+# sudo apt install software-properties-common -y
+# sudo add-apt-repository --yes --update ppa:ansible/ansible
+# sudo apt install ansible -y
+# ansible --version
+
+# ansible -i inventory/hosts.ini all -m ping
+# ansible-playbook -i inventory/hosts.ini playbook/server-complaince.yaml
 # ansible-playbook -i inventory/hosts.ini playbook/server-complaince.yaml --syntax-check
 # showing (playbook: playbook/server-complaince.yaml)
 # ansible-playbook -i inventory/hosts.ini playbook/server-complaince.yaml
